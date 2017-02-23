@@ -1,0 +1,41 @@
+div {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div[fw-name=title]{
+    width: 100%;
+    box-shadow: 0px 2px grey;
+    background-color: rgba(192,192,192, .5)
+}
+div[fw-name=name-wd]{
+    display: inline-block;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px
+}
+div[fw-name='bts-ctrl']{
+    float: right;
+}
+
+.bts-control > .fw-btn{
+    border: 0.3px groove burlywood;
+    float: left;
+    background-color: rgba(192,192,192, .1);
+}
+button[fw-name=minus]{
+    border-bottom-left-radius: 7px
+}
+main{
+    height: 90%;
+    background-color: white
+}
+
+/*set color for icon control*/
+.fa-window-minimize, .fa-window-restore, .fa-times, .fa-window-maximize{
+    color: grid;
+    font-size: 14px;
+    font-style: unset
+}
+.a{
+    background-color: red
+}
