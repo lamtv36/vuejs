@@ -1,0 +1,42 @@
+div {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+div[fw-name=title]{
+    width: 100%;
+    box-shadow: 0px 0px 5px red;
+    /*box-shadow: 0px 10px red;*/
+}
+div[fw-name=name-wd]{
+    display: inline-block;
+    text-align: left;
+    width:100%;
+    padding: 5px 1px 5px 5px;
+}
+div[fw-name='bts-ctrl']{
+    position: absolute;
+    top: 0px;
+    right: 4px
+}
+
+.bts-control > .fw-btn{
+    /*box-shadow: 0px 1px saddlebrown;*/
+    float: left;
+    background-color: rgba(192,192,192, .5);
+}
+button[fw-name=minus]{
+    border-bottom-left-radius: 7px
+}
+main{
+    height: 90%;
+    background-color: white;
+    outline: 2px outset gray;
+    padding: 2px;
+}
+
+/*set color for icon control*/
+.fa-window-minimize, .fa-window-restore, .fa-times, .fa-window-maximize{
+    color: white;
+    /*font-style: unset;*/
+}
