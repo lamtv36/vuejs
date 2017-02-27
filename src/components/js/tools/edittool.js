@@ -1,8 +1,7 @@
 //author: FPT_Lamtv3
 "use strict";
-
+console.log("load edit tool: Done");
 import config from "components/config";
-console.log(config);
 var paper = config.Paper;
 var $ = config.$;
 var toolConfig = config.toolConfig;
@@ -26,8 +25,9 @@ export class EditTool extends BaseTool {
         this.selections = [];
     }
     mouseDown(event) {
+        // debugger
         var hitResult = paper.project.hitTest(event.point, toolConfig.HIT_OPTIONS);
-        console.log(hitResult);
+        console.log("histest" +hitResult);
         if (!hitResult){
             this.deselectedAll();
             return;
@@ -96,3 +96,4 @@ export class EditTool extends BaseTool {
         this.changeIcon("\uf245");
     }
 }
+console.log("load edit tool:  done");

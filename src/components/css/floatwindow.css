@@ -1,12 +1,17 @@
+header, main, footer{
+    display: block;
+}
 div {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
 }
-
+div[fw-name=root]{
+    position: relative;
+    width: max-content;
+    height: max-content
+}
 div[fw-name=title]{
     width: 100%;
-    box-shadow: 0px 0px 5px red;
-    /*box-shadow: 0px 10px red;*/
 }
 div[fw-name=name-wd]{
     display: inline-block;
@@ -19,7 +24,6 @@ div[fw-name='bts-ctrl']{
     top: 0px;
     right: 4px
 }
-
 .bts-control > .fw-btn{
     /*box-shadow: 0px 1px saddlebrown;*/
     float: left;
@@ -29,14 +33,13 @@ button[fw-name=minus]{
     border-bottom-left-radius: 7px
 }
 main{
-    height: 90%;
+    height: 100%;
     background-color: white;
     outline: 2px outset gray;
-    padding: 2px;
+    /*overflow: auto*/
+    /*padding: 2px;*/
 }
-
 /*set color for icon control*/
 .fa-window-minimize, .fa-window-restore, .fa-times, .fa-window-maximize{
     color: white;
-    /*font-style: unset;*/
 }

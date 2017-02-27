@@ -89,6 +89,7 @@
                 reader.onload = function(e) {
                     try {
                         self_root.$parent.font = opentype.parse(e.target.result);
+                        window.font = self_root.$parent.font;
                     } catch (err) {
                         alert(err.toString());
                     }
@@ -99,7 +100,8 @@
                 reader.readAsArrayBuffer(file);
                 if(self_root.$parent.font && self_root.$parent.font.glyphs && self_root.$parent.font.glyphs.glyphs){
                     self_root.$parent.glyphs = self_root.$parent.font.glyphs.glyphs;
-                alert("Font opened");
+                    alert("Font opened");
+                    
                 }
                 else{
                     alert("can't open font");
@@ -128,6 +130,7 @@ nav, ul, li{
 	position: relative;
     list-style: none;
     display: inline-block;
+    margin: 1px 4px 1px 4px;
 }
 .parent-mn:hover{
 	background-color: rgba(192, 192, 192, .5);
@@ -139,12 +142,12 @@ nav, ul, li{
     border-radius: 0px 0px 10px 10px;
     max-height: 0px;
     transition: max-height 2s;
-    /*outline: 1px inset gray;*/
+    border: 1px inset gray;
 }
 .parent-mn:hover .sub-mn{
 	visibility: visible;
     list-style: none;
-    background-color: rgba(255, 255, 255, .9);
+    background-color: rgba(250, 250, 250, .9);
     white-space: nowrap;
     max-height: 999px
 }
@@ -160,8 +163,9 @@ nav, ul, li{
 .sub-mn li:hover{
 	background-color: purple;
     width: 100%;
+    text-align: left;
     color: white; 
     padding-left: 0px; 
-    padding-right: 0px; 
+    padding-right: 0px;
 }
 </style>

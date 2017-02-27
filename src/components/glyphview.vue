@@ -76,8 +76,9 @@
                         </table>-->
                     </div>
                     
-                    <div >
-                        <table>
+                    <!--<div >-->
+                        <list-item :font="font" v-on:selection="selectGlyph"></list-item>
+                        <!--<table>
                             <tr>
                                 <th>id</th>
                                 <th>Name</th>
@@ -92,17 +93,17 @@
                                 <td>{{glyph.width}}</td>
                                 <td>{{glyph.height}}</td>
                             </tr>
-                        </table>
-                    </div>
+                        </table>-->
+                    <!--</div>-->
                 </gv-panel>
             </div>
             <!--right side-->
             <div gl-name="right">
-                <canvas :id="id" width="1000" height="1000"></canvas>
+                <canvas :id="id" width="10000" height="10000"></canvas>
             </div>
         </main>
         <!--footer-->
-        <footer></footer>
+        <!--<footer></footer>-->
     </div>
 </template>
 <script src="./js/glyphview.js"></script>

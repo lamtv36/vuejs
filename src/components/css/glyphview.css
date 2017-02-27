@@ -51,14 +51,14 @@ main {
 div[gl-name=left]{
     float: left;
     border: 1px solid gray;
-    height: 100%;
+    height: 96%;
     width: 30%
 }
 /*float right mode right canvas*/
 div[gl-name=right]{
     border: 1px solid gray;
     width: 69%;
-    height: 100%;
+    height: 96%;
     overflow: auto;
 }
 /*makeup for tools panel*/

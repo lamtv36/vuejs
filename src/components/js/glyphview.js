@@ -5,16 +5,19 @@ import config from "components/config";
 import {PenTool} from "./tools//pentool";
 import {TextTool} from "./tools//texttool";
 import {EditTool} from "./tools//edittool";
+import {PanTool} from "./tools//pantool";
 var $ = config.$;
 var paper = config.Paper;
 import Panel from 'components/Panel';
 import Menu from 'components/Menu';
+import ListItem from 'components/list';
 var viewConfig = config.toolConfig;
 export default {
     name: "glyph-view",
     components:{
         'gv-panel': Panel,
-        "gv-menu": Menu
+        "gv-menu": Menu,
+        "list-item": ListItem
     },
     data(){
         return {
@@ -46,7 +49,11 @@ export default {
         var canvas = document.getElementById(this.id);
         this.ctx = canvas.getContext("2d");
         paper.install(window);
+        window.glyph = null;
         var self_root = this;
+        $("div[gl-name=right]")[0].scrollTop = 4555;
+        $("div[gl-name=right]")[0].scrollLeft = 4800;
+        debugger
         function openTool(toolName){
     // var canvas = document.getElementById("canvas");
             var tool = tools[toolName];
@@ -57,6 +64,10 @@ export default {
                     tool = new EditTool();
                 else if(toolName == "texttool")
                     tool = new TextTool();
+                else if(toolName == "pantool"){
+                     tool = new PanTool(canvas);
+                }
+                   
                 if(tool != undefined) tools[toolName] = tool;
             }
             if(tool != undefined){
@@ -84,7 +95,7 @@ export default {
             }
         }
     },
-    props: ["dataFont", "id", 'glyphs'],
+    props: ["dataFont", "id"],
     computed:{
         getFont: function(){
             var font = null;
@@ -124,6 +135,8 @@ export default {
     methods: {
         // change glyph in canvas view
         selectGlyph: function(glyph){
+            if(window.glyph != glyph) window.glyph = glyph;
+            debugger
             this.drawglyph(glyph);
             console.log("draw glyph name: "+ glyph.name);
             this.currentGlyph = glyph.index;
@@ -139,15 +152,16 @@ export default {
                 updateView();
                 // draw glyph
                 // get path of glyph
-                var path = glyph.getPath(300, 500, 500);
+                var path = glyph.getPath(5000, 5000, 500);
                 // set style for glyph
                 path.fill = viewConfig.STYLES.fill;
                 path.stroke = viewConfig.STYLES.stroke;
                 path.draw(this.ctx);
+                
                 // draw metrics
-                glyph.drawMetrics(this.ctx, 300, 500, 500);
+                // glyph.drawMetrics(this.ctx, 5000, 5000, 500);
                 // draw marker point
-                glyph.drawPoints(this.ctx, 300, 500, 500);
+                // glyph.drawPoints(this.ctx, 5000, 5000, 500);
             }
         }, // end draw glyph method
         setStyle(value){

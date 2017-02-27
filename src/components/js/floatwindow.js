@@ -8,7 +8,7 @@ export default {
                 style: {
                     position:'absolute', 
                     width:'80px',
-                    height:'300px',
+                    height:'max-content',
                     top:'40px',
                     left:'10px',
                     border:'2px solid #2266AA',
@@ -124,6 +124,7 @@ export default {
             }
             xpwd.onmouseup = e=> {
                 console.log("mouse up: expanded window");
+                debugger
                 if(!flag_show){
                     if(self.isExpanded){
                         self.style.top = old_size.top;
@@ -131,10 +132,12 @@ export default {
                         self.style.width = old_size.width;
                         self.style.height = old_size.height;
                     }else{
+                        // get scale of brower google chorme
+                        var sc = window.outerWidth / window.innerWidth;
                         self.style.top = "0px";
                         self.style.left = "5px";
-                        self.style.width = window.screen.availWidth - 10 + "px";
-                        self.style.height = window.screen.availHeight- 70 + "px";
+                        self.style.width = window.screen.availWidth/sc - 10 + "px";
+                        self.style.height = window.screen.availHeight/sc- 70 + "px";
                     }
                     self.isExpanded = !self.isExpanded;
                 }
