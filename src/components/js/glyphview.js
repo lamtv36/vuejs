@@ -12,6 +12,15 @@ import Panel from 'components/Panel';
 import Menu from 'components/Menu';
 import ListItem from 'components/list';
 var viewConfig = config.toolConfig;
+function abc() {
+  switch (1) {
+    case 0:
+    case 1:
+    case 2:
+      return 43;
+      break;
+  }
+}
 export default {
     name: "glyph-view",
     components:{
